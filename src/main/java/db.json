@@ -1,0 +1,63 @@
+{
+  "Movies": [
+    {
+      "id": 1,
+      "title": "Avengers",
+      "series": "Marvels"
+    },
+    {
+      "id": 2,
+      "title": "Fast And Furious",
+      "series": "Universal Pictures"
+    },
+    {
+      "id": 3,
+      "title": "Harry Potter",
+      "series": "Seven fantasy novels"
+    },
+    {
+      "id": 4,
+      "title": "Red Notice",
+      "series": "Dwyane Johnson"
+    }
+  ],
+  "Cricketers": [
+    {
+      "id": 1,
+      "name": "Virat Kohli",
+      "country": "India"
+    },
+    {
+      "id": 2,
+      "name": "M.S Dhoni",
+      "country": "India"
+    },
+    {
+      "id": 3,
+      "name": "ABdevillers",
+      "country": "South Africa"
+    },
+    {
+      "id": 4,
+      "name": "Glein Maxwell",
+      "country": "Australia"
+    }
+  ],
+  "Cars": [
+    {
+      "id": 1,
+      "name": "Ecosports",
+      "brand": "ford"
+    },
+    {
+      "id": 2,
+      "name": "X3",
+      "brand": "BMW"
+    },
+    {
+      "id": 3,
+      "name": "Swift",
+      "brand": "Suzuki"
+    }
+  ]
+}

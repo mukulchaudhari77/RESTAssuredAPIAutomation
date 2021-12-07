@@ -1,25 +1,28 @@
 package com.demo.tests;
 
-import org.testng.annotations.Test;
-import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import org.testng.Assert;
+import org.testng.annotations.*;
+import static io.restassured.RestAssured.*;
 import io.restassured.response.Response;
 
-public class FirstDemo {
-	//
-	//	public static void main(String[] args) {
-	//		// TODO Auto-generated method stub
-	//		
-	//		Response response =RestAssured.get("https://reqres.in/api/users/2");
-	//		System.out.println(response.asPrettyString());
-	//	}
+public class FirstDemo extends BaseTest{
+
 	@Test
-	public static void getuserID() {
-		Response response =RestAssured.get("https://reqres.in/api/users");
-		System.out.println(response.asPrettyString());
-	}
-	@Test
-	public static void getsingleuser() {
-		Response respo = RestAssured.get("https://reqres.in/api/users?page=2");
-		System.out.println(respo.asPrettyString());
+	public static void getlistOfUserByPageNo() {
+		int pageNumber = 1;
+		Response response = given().queryParam("page", pageNumber)
+				.when().
+				get("users")
+				.then().
+				extract().response();
+		Assert.assertEquals(response.statusCode(), 200);
+		JsonPath jsonPath = new JsonPath(response.asString());
+		Assert.assertEquals(jsonPath.getInt("page"), pageNumber);
+		Assert.assertEquals(jsonPath.getInt("per_page"), 6);
+		Assert.assertEquals(jsonPath.getInt("total"), 12);
+		Assert.assertEquals(jsonPath.getList("data").size(), 6);
+		Assert.assertTrue(jsonPath.getString("data[3].email").contains("@reqres.in"));
+		Assert.assertEquals(jsonPath.getString("data[0].email"), "george.bluth@reqres.in");
 	}
 }
