@@ -7,14 +7,15 @@ import org.testng.annotations.*;
 import java.util.HashMap;
 import java.util.Map;
 import static io.restassured.RestAssured.*;
+import org.testng.Assert;
 
 public class HttpLocalRestAPI {
 
 	@Test(priority = 0)
 	public void getListOfMovies() {
-		Response response = get("http://localhost:3000/Movies");
+		Response response = given().get("http://localhost:3000/Movies").then().extract().response();
 		System.out.println(response.asPrettyString());
-		System.out.println(response.getStatusCode());
+		Assert.assertEquals(response.statusCode(), 200);
 	}
 	@Test(priority = 1)
 	public void getListOfCricketers() {

@@ -5,8 +5,8 @@ Hello, In this project I have used the REST Assured and JAVA as a language. Then
 
 ---
 
-### Web service and Languages used : 
-<br>
+
+### RestAPI and Languages used :
 
 ![Rest-Assured](https://img.shields.io/badge/-Rest%20Assured-4BA82E?&style=for-the-badge&logo=Java&logoColor=white)
 ![Postman](https://img.shields.io/badge/-Postman-%23FF6C37?&style=for-the-badge&logo=Postman&logoColor=white)
@@ -15,32 +15,26 @@ Hello, In this project I have used the REST Assured and JAVA as a language. Then
 ![Eclipse](https://img.shields.io/badge/Eclipse%20IDE-%232C2255?&style=for-the-badge&logo=Eclipse%20IDE&logoColor=white)
 
 ---
-webservies Dependencies  are used in the  `JRE System Libraries, Maven Dependencies` :
+Dependencies : <br>
+[testNG](https://mvnrepository.com/artifact/org.testng/testng/7.4.0) <br>
+[RestAssured](https://mvnrepository.com/artifact/io.rest-assured/rest-assured/4.4.0) <br>
+[json](https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1.1) <br>
+---
 
+### Local JSON server Database API :
 
-<dependencies>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>4.4.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-	</dependencies>
-
-
-
+Install JSON Server
+```
+npm install json-server
+```
+Start JSON Server
+```
+json-server --watch db.json
+```
+Local Port 
+```
+localhost:3000
+```
 ---
 Run the following the commands from the root project [My Project](https://github.com/mukulchaudhari77/RESTAssuredAPIAutomation.git) to execute :
 
@@ -51,46 +45,23 @@ Used to run the `test cases ` :
 
 Run as TestNG
 
-
 ---
 ### Getting started With Github
 
 #### Run the following the commands from Terminals Github and CMD :
 
-To Know Git Installed or not :
-
-git init
-
-
 To add the files  `edited or new files` :
-
+```
 git add .  (will add all files)
-
-
+```
 To commit the added files `"can add Message"` :
-
+```
 git commit -m  "message"
-
-
+```
 To push the code into git `using branch name` :
-
+```
 git push origin -u branch_name
-
-
-### Run this commands to clone from git
-
-*(*Make sure Your are in the same branch, Which is used to push)**
-
-To fetch the code from git :
-
-git fetch
-
-
-To pull the code from git :
-
-git pull 
-
-
+```
 ---
 ### Code Contributor
 
