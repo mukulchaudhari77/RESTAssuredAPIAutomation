@@ -1,15 +1,20 @@
 package com.demo.tests;
 
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import org.json.simple.JSONObject;
-import org.testng.annotations.*;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
+
 import java.util.HashMap;
 import java.util.Map;
-import static io.restassured.RestAssured.*;
-import org.testng.Assert;
 
-public class HttpLocalRestAPI {
+import org.json.simple.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class HttpLocalRestAPITest {
 
 	@Test(priority = 0)
 	public void getListOfMovies() {
