@@ -57,3 +57,5 @@ public class HttpMethodsTest extends BaseTest {
 		Assert.assertEquals(response.statusCode(), 204);
 	}
 }
+
+

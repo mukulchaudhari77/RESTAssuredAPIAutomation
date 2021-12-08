@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Payload {
-
 	public static Map<String, String> createUserData(String name, String job) {
 		Map<String, String> map = new HashMap<>();
 		map.put("name", name);
@@ -21,3 +20,6 @@ public class Payload {
 	}
 
 }
+
+
+

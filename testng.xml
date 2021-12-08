@@ -9,8 +9,7 @@
     </test>
 
     <test name="Local API">
-        <classes>
-            <class name="com.demo.tests.HttpLocalRestAPI"></class>
+        <classes><class name="com.demo.tests.HttpLocalRestAPI"></class>
         </classes>
     </test>
 </suite>
