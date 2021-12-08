@@ -48,7 +48,7 @@ npx json-server --watch db.json
 2. Navigate to RestAssuredAPITestAutomation
 ```
 ---
-###API Sources:
+### API Sources:
 ```
 - Localhost: http://localhost:3000/
 - ReqRes API: https://reqres.in/
