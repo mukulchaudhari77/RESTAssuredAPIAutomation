@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class GetDemoTest extends BaseTest {
+public class GetDemoTest extends MainURL {
 
 	@Test
 	public static void getListOfUserByPageNoTest() {
 
 
 		int pageNumber = 1;
+		MainURL.createtest("get list of user test", "Regression");
 		Response response = given().queryParam("page", pageNumber)
 				.when().get("users").then().extract().response();
 

@@ -4,12 +4,8 @@
     <test name="ReqRes API" >
         <classes>
             <class name="com.demo.tests.GetDemoTest" />
-            <class name="com.demo.tests.HttpMethodsTest" />
-        </classes>
-    </test>
-
-    <test name="Local API">
-        <classes><class name="com.demo.tests.HttpLocalRestAPI"></class>
+            <class name="com.demo.tests.PostDemoTest"/><class name="com.demo.tests.UpdateUserTest"></class>
+        	<class name="com.demo.tests.DeleteUserTest"></class>
         </classes>
     </test>
 </suite>
