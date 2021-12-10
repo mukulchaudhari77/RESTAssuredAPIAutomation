@@ -15,9 +15,8 @@ public class PostDemoTest extends MainURL{
 
 	@Test
 	public void testCreateUser() {
-		String name = "Raghav";
-		String job = "Teacher";
-		MainURL.createtest("create user test", "Regression");
+		String name = "morpheus";
+		String job = "Professor";
 		Response response = given().
 				when().contentType(ContentType.JSON)
 				.body(createUserData(name, job))

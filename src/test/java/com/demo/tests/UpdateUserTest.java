@@ -13,21 +13,21 @@ public class UpdateUserTest extends MainURL{
 
 	@Test
 	public void updateUserTest() {
-		MainURL.createtest("update user test", "Smoke");
 		Response response = given().contentType(ContentType.JSON)
 				.body(updateUserData("Mukul", "Software Engineer", "TestingAutomation"))
 				.when().put("/users/2")
 				.then().extract().response();
 		Assert.assertEquals(response.statusCode(), 301);
+		Assert.assertNotNull(response.body());
 	}
 
 	@Test
 	public void updateUserPatchTest() {
-		MainURL.createtest("update the user test", "Smoke");
 		Response response = given().contentType(ContentType.JSON)
 				.body(updateUserData("Mukul", "Software Engineer", "TestingAutomation"))
-				.when().patch("api/users/2")
+				.when().patch("/users/2")
 				.then().extract().response();
+		Assert.assertNotNull(response.body());
 		Assert.assertEquals(response.statusCode(), 301);
 	}
 }

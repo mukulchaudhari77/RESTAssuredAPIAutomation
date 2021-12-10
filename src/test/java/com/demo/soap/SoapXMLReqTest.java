@@ -1,4 +1,4 @@
-package com.demo.tests;
+package com.demo.soap;
 
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;

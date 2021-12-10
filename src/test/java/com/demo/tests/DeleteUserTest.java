@@ -12,12 +12,11 @@ public class DeleteUserTest extends MainURL {
 
 	@Test
 	public void deleteUserByIdTest() {
-		MainURL.createtest("delete user test", "Regression");
 		Response response = given().contentType(ContentType.JSON)
 				.when().delete("api/users/2")
 				.then()
 				.extract().response();
-		Assert.assertEquals(response.statusCode(),301);
+		Assert.assertEquals(response.statusCode(),204);
 	}
 }
 

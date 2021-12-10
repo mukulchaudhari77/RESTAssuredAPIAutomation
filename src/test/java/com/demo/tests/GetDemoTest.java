@@ -13,10 +13,7 @@ public class GetDemoTest extends MainURL {
 
 	@Test
 	public static void getListOfUserByPageNoTest() {
-
-
 		int pageNumber = 1;
-		MainURL.createtest("get list of user test", "Regression");
 		Response response = given().queryParam("page", pageNumber)
 				.when().get("users").then().extract().response();
 
@@ -28,7 +25,6 @@ public class GetDemoTest extends MainURL {
 		Assert.assertEquals(jsonPath.getList("data").size(), 6);
 		Assert.assertTrue(jsonPath.getString("data[3].email").contains("@reqres.in"));
 		Assert.assertEquals(jsonPath.getString("data[0].email"), "george.bluth@reqres.in");
-
 		Assert.assertEquals(jsonPath.getInt("data[2].id"), 3);
 		Assert.assertEquals(jsonPath.getString("data[2].email"), "emma.wong@reqres.in");
 		Assert.assertEquals(jsonPath.getString("data[2].first_name"), "Emma");
