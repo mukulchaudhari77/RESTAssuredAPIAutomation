@@ -8,7 +8,7 @@ public class MainURL {
 	
 	@BeforeTest
 	public void setUpbaseURL() {
-		baseURI = "http://reqres.in/api";
+		baseURI = "https://reqres.in/api";
 	}
 	
 }

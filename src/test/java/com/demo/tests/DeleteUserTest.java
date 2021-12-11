@@ -10,14 +10,14 @@ import io.restassured.response.Response;
 
 public class DeleteUserTest extends MainURL {
 
-	@Test
-	public void deleteUserByIdTest() {
-		Response response = given().contentType(ContentType.JSON)
-				.when().delete("api/users/2")
-				.then()
-				.extract().response();
-		Assert.assertEquals(response.statusCode(),204);
-	}
+    @Test
+    public void deleteUserByIdTest() {
+        Response response = given().contentType(ContentType.JSON)
+                .when().delete("api/users/2")
+                .then()
+                .extract().response();
+        Assert.assertEquals(response.statusCode(), 204);
+    }
 }
 
 
