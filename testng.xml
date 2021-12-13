@@ -1,17 +1,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="All API Test" verbose="1">
-    <listeners>
-        <listener class-name="com.demo.listeners.Listener"/>
-    </listeners>
+	<listeners>
+		<listener class-name="com.demo.listeners.Listener" />
+	</listeners>
 
-    <test name="ReqRes API">
-        <classes>
-            <class name="com.demo.tests.GetDemoTest"/>
-            <class name="com.demo.tests.PostDemoTest"/>
-            <class name="com.demo.tests.UpdateUserTest"/>
-            <class name="com.demo.tests.DeleteUserTest"/>
-            <!--        	<class name="com.demo.localAPITest.LocalRestAPITest" />-->
-        </classes>
-    </test>
+	<test name="ReqRes API">
+		<classes>
+			<class name="com.demo.tests.GetDemoTest" />
+			<class name="com.demo.tests.PostDemoTest" />
+			<class name="com.demo.tests.UpdateUserTest" />
+			<class name="com.demo.tests.DeleteUserTest" />
+			 
+		</classes>
+	</test>
 </suite>
