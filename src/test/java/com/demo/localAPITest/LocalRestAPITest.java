@@ -105,7 +105,7 @@ public class LocalRestAPITest extends BaseTestLocal {
                 .when().contentType(ContentType.JSON)
                 .body(updateUserData3(id, title, series))
                 .put("Movies/" + id)
-                .then().log().all().extract().response();
+                .then().extract().response();
 
         Assert.assertEquals(response.statusCode(), 200);
     }
