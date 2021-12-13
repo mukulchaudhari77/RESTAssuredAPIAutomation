@@ -9,7 +9,7 @@ import com.demo.report.ReportManager;
 public class BaseTest {
 	
 	@BeforeTest
-	protected void setUpbaseURL() {
+	protected void setUpBaseURL() {
 		baseURI = "https://reqres.in/api";
 	}
 	protected static void addResponseToReport(String response) {

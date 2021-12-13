@@ -11,7 +11,12 @@
 			<class name="com.demo.tests.PostDemoTest" />
 			<class name="com.demo.tests.UpdateUserTest" />
 			<class name="com.demo.tests.DeleteUserTest" />
-			 
+		</classes>
+	</test>
+
+	<test name="Local API">
+		<classes>
+			<class name="com.demo.localAPITest.LocalRestAPITest" />
 		</classes>
 	</test>
 </suite>

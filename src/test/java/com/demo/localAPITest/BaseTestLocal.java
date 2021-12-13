@@ -9,7 +9,7 @@ import com.demo.report.ReportManager;
 public class BaseTestLocal {
 
 	@BeforeTest
-	protected void setUpbaseURLLocal() {
+	protected void setUpLocalBaseURL() {
 		baseURI = "http://localhost:3000/";
 	}
 	protected static void addResponseToReport(String response) {
