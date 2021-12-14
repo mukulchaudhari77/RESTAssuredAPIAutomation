@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class GetDemoTest extends MainURL {
+public class GetDemoTest extends BaseTest {
 
-    @Test
+    @Test(description = "Test List of Users By Page number")
     public static void getListOfUserByPageNoTest() {
         int pageNumber = 1;
         Response response = given().queryParam("page", pageNumber)
@@ -19,6 +19,7 @@ public class GetDemoTest extends MainURL {
 
         Assert.assertEquals(response.statusCode(), 200);
         JsonPath jsonPath = convertResponseToJsonPath(response);
+        addResponseToReport(response.asPrettyString());
         Assert.assertEquals(jsonPath.getInt("page"), pageNumber);
         Assert.assertEquals(jsonPath.getInt("per_page"), 6);
         Assert.assertEquals(jsonPath.getInt("total"), 12);

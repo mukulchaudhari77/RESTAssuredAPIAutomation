@@ -6,3 +6,5 @@
 /target/
 .idea/
 /report/
+/src/main/app/node_modules/**
+*.iml

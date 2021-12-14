@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class DeleteUserTest extends MainURL {
+public class DeleteUserTest extends BaseTest {
 
-    @Test
+    @Test(description = "Test delete User by Id")
     public void deleteUserByIdTest() {
         Response response = given().contentType(ContentType.JSON)
                 .when().delete("api/users/2")

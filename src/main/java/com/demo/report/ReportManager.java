@@ -7,8 +7,8 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ReportManager {
 	public static ExtentTest test;
-	static ExtentReports extent;
-	
+	public static ExtentReports extent;
+
 	public static void configReport() {
 		extent = new ExtentReports();
 		ExtentSparkReporter spark = new ExtentSparkReporter("report/index.html");
@@ -17,7 +17,7 @@ public class ReportManager {
 		spark.config().setReportName("ExtentReports");
 		extent.attachReporter(spark);	
 	}
-	
+
 	public static void flushReport() {
 		extent.flush();
 	}
@@ -26,5 +26,10 @@ public class ReportManager {
 				.assignCategory(testType)
 				.assignAuthor("Otis")
 				.assignDevice("Firefox 61");
+	}
+	public static void logResponse(String message) {
+		String formattedMessage = message.replace("\n", "<br>");
+	
+		test.info("<pre>"+ formattedMessage + "</pre>");
 	}
 }

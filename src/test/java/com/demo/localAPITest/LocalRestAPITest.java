@@ -3,7 +3,6 @@ package com.demo.localAPITest;
 import static com.demo.resources.Payload2.createUserData2;
 import static com.demo.resources.Payload2.updateUserData3;
 import static com.demo.utils.Formatter.convertResponseToJsonPath;
-import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 import org.testng.Assert;
@@ -13,11 +12,11 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class LocalRestAPITest {
+public class LocalRestAPITest extends BaseTestLocal {
 
-    @Test(priority = 0)
+    @Test(priority = 0, description = "Test List of Movies")
     public void getListOfMovies() {
-        Response response = given().get("http://localhost:3000/Movies")
+        Response response = given().get("Movies")
                 .then().extract().response();
         Assert.assertEquals(response.statusCode(), 200);
         JsonPath jsonPath = convertResponseToJsonPath(response);
@@ -26,9 +25,9 @@ public class LocalRestAPITest {
         Assert.assertEquals(jsonPath.getString("series[3]"), "Dwyane Johnson");
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, description = "Test List of Cricketers")
     public void getListOfCricketers() {
-        Response response = given().get("http://localhost:3000/Cricketers")
+        Response response = given().get("Cricketers")
                 .then().extract().response();
         Assert.assertEquals(response.statusCode(), 200);
         JsonPath jsonPath = convertResponseToJsonPath(response);
@@ -37,9 +36,9 @@ public class LocalRestAPITest {
         Assert.assertEquals(jsonPath.getString("country[1]"), "India");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, description = "Test List of Cars")
     public void getListOfCars() {
-        Response response = given().get("http://localhost:3000/Cars")
+        Response response = given().get("Cars")
                 .then().extract().response();
         Assert.assertEquals(response.statusCode(), 200);
         JsonPath jsonPath = convertResponseToJsonPath(response);
@@ -48,9 +47,9 @@ public class LocalRestAPITest {
         Assert.assertEquals(jsonPath.getString("brand[1]"), "BMW");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, description = " Test Movie Details")
     public void getSingleMovieById() {
-        Response response = given().get("http://localhost:3000/Movies/2")
+        Response response = given().get("Movies/2")
                 .then().extract().response();
         JsonPath jsonPath = convertResponseToJsonPath(response);
         Assert.assertEquals(jsonPath.getInt("id"), 2);
@@ -58,10 +57,11 @@ public class LocalRestAPITest {
         Assert.assertEquals(jsonPath.getString("series"), "Universal Pictures");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 4, description = "Test Cricketer Details")
     public void getSingleCricketerById() {
-        Response response = given().get("http://localhost:3000/Cricketers/4")
+        Response response = given().get("Cricketers/4")
                 .then().extract().response();
+
         Assert.assertEquals(response.statusCode(), 200);
         JsonPath jsonPath = convertResponseToJsonPath(response);
         Assert.assertEquals(jsonPath.getInt("id"), 4);
@@ -69,10 +69,11 @@ public class LocalRestAPITest {
         Assert.assertEquals(jsonPath.getString("country"), "Australia");
     }
 
-    @Test(priority = 5)
+    @Test(priority = 5, description = "Test Car Details")
     public void getSingleCarById() {
-        Response response = given().get("http://localhost:3000/Cars/3")
+        Response response = given().get("Cars/3")
                 .then().extract().response();
+
         Assert.assertEquals(response.statusCode(), 200);
         JsonPath jsonPath = convertResponseToJsonPath(response);
         Assert.assertEquals(jsonPath.getInt("id"), 3);
@@ -81,28 +82,39 @@ public class LocalRestAPITest {
 
     }
 
-    @Test(priority = 6)
-    public void postdataToMovies() {
-        baseURI = "http://localhost:3000";
+    @Test(priority = 6, description = "Test add Movie in the List")
+    public void postDataToMovies() {
         String title = "Dabang";
         String series = "Bollywood";
-        Response response = given().
-                when().contentType(ContentType.JSON)
-                .body(createUserData2(title, series))
-                .post("/Movies")
+        int id = 13;
+        Response response = given()
+                .when().contentType(ContentType.JSON)
+                .body(createUserData2(id, title, series))
+                .post("Movies")
                 .then().extract().response();
-        Assert.assertEquals(response.statusCode(), 500);
+
+        Assert.assertEquals(response.statusCode(), 201);
     }
 
-    @Test(priority = 7)
-    public void putdataToMovies() {
-        baseURI = "http://localhost:3000";
+    @Test(priority = 7, description = "Test Update the Movie Details in the List")
+    public void putDataToMovies() {
         String title = "Dabang 2";
-        Response response = given().
-                when().contentType(ContentType.JSON)
-                .body(updateUserData3(title))
-                .post("/Movies")
+        String series = "BollywoodOld";
+        int id = 13;
+        Response response = given()
+                .when().contentType(ContentType.JSON)
+                .body(updateUserData3(id, title, series))
+                .put("Movies/" + id)
                 .then().extract().response();
-        Assert.assertEquals(response.statusCode(), 500);
+
+        Assert.assertEquals(response.statusCode(), 200);
+    }
+
+    @Test(priority = 8, description = "Delete User By Id")
+    public static void deleteMethod() {
+        int id = 13;
+        Response response = given().when().delete("Movies/"+id).then().extract().response();
+
+        Assert.assertEquals(response.statusCode(), 200);
     }
 }
